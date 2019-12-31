@@ -1,7 +1,11 @@
-process.env.NODE_ENV = process.env.NODE_ENV || 'development';
-
+ process.env.NODE_ENV = process.env.NODE_ENV || 'development';
+var mongoose = require('./config/mongoose');
 var express = require('./config/express');
+var passport = require('./config/passport');
+
+var db = mongoose();
 var app = express();
+var passport = passport();
 
 app.listen(3000);
 module.exports = app;
@@ -12,6 +16,9 @@ console.log('Server running at http://localhost:3000');
 //#=================================================
 //# create by use connect
 /*
+curl -X POST -d '{\"firstName\": \"First\"}'  localhost:3000/user
+curl -X POST -H "Content-Type: application/json" -d '{"firstName": "First", "lastName": "Last", "username": "myusername", "email": "test@test.com", "password": "password"}' localhost:3000/user
+
 var connect = require('connect');
 var app = connect();
 
