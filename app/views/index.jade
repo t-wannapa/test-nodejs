@@ -2,15 +2,23 @@ html
 	head
 		title= title
 		link(href='/css/main.css', rel='stylesheet')
-	body
-		h1= title
-		if username 
-			h2 Hello #{username}
-			form(name='logout', method='POST', action='logout')
-				div
-					input(type='submit', value='logout')
-		else
-			div
-				a(href='/signup') Sign up
-			div
-				a(href='/login') Log in
+	body#mainApp
+		header(ng-include="'/modules/users/views/header.client.view.jade'")
+		div(ui-view="")
+		
+		
+script(type='text/javascript').
+	window.user = !{user || 'null'}		
+
+script(type='text/javascript', src='/lib/angular/angular.min.js')
+script(type='text/javascript', src='/lib/angular-ui-router/release/angular-ui-router.min.js')
+script(type='text/javascript', src='/modules/core/core.client.module.js')
+script(type='text/javascript', src='/modules/core/config/core.client.routes.js')
+script(type='text/javascript', src='/modules/core/controllers/header.client.controller.js')
+
+script(type='text/javascript', src='/modules/users/users.client.module.js')
+script(type='text/javascript', src='/modules/users/config/users.client.routes.js')
+script(type='text/javascript', src='/modules/users/controllers/auth.client.controller.js')
+script(type='text/javascript', src='/modules/users/services/auth.client.service.js')
+
+script(type='text/javascript', src='/application.js')
