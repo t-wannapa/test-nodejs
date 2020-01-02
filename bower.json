@@ -1,0 +1,22 @@
+{
+  "name": "test-meanstack",
+  "description": "",
+  "main": "",
+  "authors": [
+    "wannapa <wannapa.sien@gmail.com>"
+  ],
+  "license": "MIT",
+  "homepage": "https://github.com/t-wannapa/test-nodejs",
+  "private": false,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "~1.4.4",
+    "angular-ui-router": "~1.0.0"
+  }
+}
